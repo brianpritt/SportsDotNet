@@ -31,17 +31,19 @@ namespace SportsLeague
 
             services.AddEntityFramework()
                 .AddDbContext<SportsLeagueContext>(options =>
-                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]))
+                    options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
         }
 
         public void Configure(IApplicationBuilder app)
         {
             //2
+            app.UseStaticFiles();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Teams}/{action=Index}/{id?}");
             });
 
             app.Run(async (context) =>

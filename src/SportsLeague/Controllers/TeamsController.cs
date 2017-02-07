@@ -11,7 +11,7 @@ using SportsLeague.Models;
 
 namespace SportsLeague.Controllers
 {
-    public class TeamController : Controller
+    public class TeamsController : Controller
     {
         // GET: /<controller>/
         private SportsLeagueContext db = new SportsLeagueContext();
@@ -35,7 +35,9 @@ namespace SportsLeague.Controllers
 
         public IActionResult Details(int id)
         {
-            var thisTeam = db.Teams.FirstOrDefault(teams => teams.TeamId == id);
+            var thisTeam = db.Teams.Include(teams =>teams.Players)
+                .Include(teams => teams.Division)
+                .FirstOrDefault(teams => teams.TeamId == id);
             return View(thisTeam);
         }
 

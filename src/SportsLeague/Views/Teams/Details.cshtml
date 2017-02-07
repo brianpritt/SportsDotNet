@@ -1,0 +1,20 @@
+﻿@model SportsLeague.Models.Team
+
+@{ 
+    ViewData["Title"] = "Team Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@Html.DisplayFor(model => model.TeamName) Details</h2>
+<hr />
+<h4>Division : @Html.DisplayFor(model => model.Division.Name)</h4>
+<h3>Members</h3>
+<hr />
+@foreach (var player in Model.Players)
+{
+    <br />
+    <tr>
+        <td>
+            @Html.DisplayFor(modelPlayer => player.PlayerName)
+        </td>
+    </tr>
+}
