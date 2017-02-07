@@ -45,6 +45,7 @@ namespace SportsLeague.Controllers
         public IActionResult Edit(int id)
         {
             var thisTeam = db.Teams.FirstOrDefault(teams => teams.TeamId == id);
+            ViewBag.DivisionId = new SelectList(db.Divisions, "DivisionId", "Name");
             return View(thisTeam);
         }
 

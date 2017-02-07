@@ -1,0 +1,22 @@
+﻿@model SportsLeague.Models.Team
+
+@{ 
+    ViewData["Title"] = "Item - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Edit this Team: @Html.DisplayFor(model => model.TeamName)</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TeamId)
+
+    @Html.LabelFor(model => model.TeamName)
+    @Html.EditorFor(model => model.TeamName)
+
+    @Html.LabelFor(model => model.Captain)
+    @Html.EditorFor(model => model.Captain)
+
+    @Html.LabelFor(model => model.DivisionId)
+    @Html.DropDownList("DivisionId")
+
+    <input type="submit" value="Save" class="btn btn-default" />
+}
