@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SportsLeague.Models.Team>
+
+@{ 
+    ViewData["Title"] = "Team";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Sports</h2>
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division.Name)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var team in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelTeam => team.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelTeam => team.Division.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = team.TeamId }) |
+                @Html.ActionLink("Details", "Details", new { id = team.TeamId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = team.TeamId})
+            </td>
+        </tr>
+    }
+</table>
