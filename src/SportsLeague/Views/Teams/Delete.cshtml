@@ -1,0 +1,14 @@
+﻿@model SportsLeague.Models.Team
+
+@{ 
+    ViewData["Title"] = "Team - Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Are you shure you want to Delete this team?</h2>
+<hr />
+<h3>Team: @Html.DisplayFor(model => model.TeamName)</h3>
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>

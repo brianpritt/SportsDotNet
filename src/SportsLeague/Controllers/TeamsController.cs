@@ -22,6 +22,7 @@ namespace SportsLeague.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.DivisionId = new SelectList(db.Divisions, "DivisionId", "Name");
             return View();
         }
 
@@ -30,7 +31,8 @@ namespace SportsLeague.Controllers
         {
             db.Teams.Add(team);
             db.SaveChanges();
-            return RedirectToAction("index");
+            
+            return RedirectToAction("Index");
         }
 
         public IActionResult Details(int id)

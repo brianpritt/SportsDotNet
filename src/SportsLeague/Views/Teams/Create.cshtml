@@ -1,0 +1,24 @@
+﻿@model SportsLeague.Models.Team
+
+@{
+    ViewData["Title"] = "Team - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Create a new item</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.TeamName)
+    @Html.EditorFor(model => model.TeamName)
+
+    @Html.LabelFor(model => model.Captain)
+    @Html.EditorFor(model => model.Captain)
+
+    @Html.LabelFor(model => model.DivisionId)
+    @Html.DropDownList("DivisionId")
+
+    <input type="submit" value="Create" class="btn btn-default" />
+}
+
+@Html.ActionLink("Back to List", "Index")
